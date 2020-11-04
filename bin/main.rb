@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
+require_relative '../lib/game_player'
+require_relative '../lib/game_board'
+
 def display_instructions
   puts 'This is a tic-tac-toe game'
   puts 'Press the Enter key to start the game'
@@ -7,21 +10,24 @@ def display_instructions
   puts
 end
 
-board = [1,2,3,4,5,6,7,8,9]
+def get_user_input(board)
+  print "\n#{@current_player}, please pick your position: "
+  position = gets.chomp
 
-def dispaly_board(board)
-  puts "|#{board[0]} | #{board[1]} | #{board[2]}|"
-  puts "-----------"
-  puts "|#{board[3]} | #{board[4]} | #{board[5]}|"
-  puts '-----------'
-  puts "|#{board[6]} | #{board[7]} | #{board[8]}|"
+  until board.valid_move?(position)    
+    (puts "\nPosition taken \"#{@current_player}\", try again: ")
+    position = gets.chomp
+  end
+  position
 end
 
-def get_user_input
-  loop until gets
+def play
+  return nil
 end
 
-
-display_instructions
-dispaly_board(board)
-get_user_input
+begin
+  board = Board.new
+  display_instructions
+  board.display_board
+  get_user_input(board)
+end

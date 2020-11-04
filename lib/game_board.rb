@@ -5,7 +5,7 @@ class Board
     @board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   end
 
-  def display_board
+  def draw
     puts "|#{board[0]} | #{board[1]} | #{board[2]}|"
     puts '-----------'
     puts "|#{board[3]} | #{board[4]} | #{board[5]}|"
@@ -17,11 +17,19 @@ class Board
     nil
   end
 
-  def update_board(_input)
+  def update(_input)
     nil
   end
 
+  def turn(count)
+    count.even? ? 'player_b' : 'player_a'
+  end
+
   def win?
+    nil
+  end
+
+  def tied?
     nil
   end
 end

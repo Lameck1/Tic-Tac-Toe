@@ -14,20 +14,18 @@ def get_user_input(board)
   print "\n#{@current_player}, please pick your position: "
   position = gets.chomp
 
-  until board.valid_move?(position)    
+  until board.valid_move?(position)
     (puts "\nPosition taken \"#{@current_player}\", try again: ")
     position = gets.chomp
   end
   position
 end
 
-def play
-  return nil
-end
-
-begin
+loop do
   board = Board.new
   display_instructions
-  board.display_board
-  get_user_input(board)
+  board.draw
+  position = get_user_input(board)
+  board.update(position)
+  break if win? || tied?
 end

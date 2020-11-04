@@ -7,6 +7,6 @@ class Player
   end
 
   def switch_player
-    return nil
+    nil
   end
 end

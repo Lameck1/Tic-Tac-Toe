@@ -1,9 +1,9 @@
 class Board
-    attr_accessor :board
+  attr_accessor :board
 
-    def initialize
-        @board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    end    
+  def initialize
+    @board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  end
 
   def display_board
     puts "|#{board[0]} | #{board[1]} | #{board[2]}|"
@@ -13,15 +13,15 @@ class Board
     puts "|#{board[6]} | #{board[7]} | #{board[8]}|"
   end
 
-  def valid_move?(position)
-    return nil
+  def valid_move?(_position)
+    nil
   end
 
-  def update_board(input)
-    return nil
+  def update_board(_input)
+    nil
   end
 
   def win?
-    return nil
+    nil
   end
 end

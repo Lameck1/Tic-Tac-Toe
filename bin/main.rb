@@ -10,29 +10,27 @@ def display_instructions
   puts
 end
 
-def get_name
-  print "Enter the of player 1: "
+def user_name
+  print 'Enter the name of first player: '
   name1 = gets.chomp
-  print "Enter the name of second player: "
+  print 'Enter the name of second player: '
   name2 = gets.chomp
   puts "#{name1} will be using 'X' and #{name2} will be using 'O'"
-  return name1, name2
+  [name1, name2]
 end
 
 def get_user_input(turn, name1, name2)
-  if turn == "player_a"
+  if turn == 'player_a'
     print "#{name1}, please enter your position: "
-    position = gets.chomp
   else
-    print "#{name2}, please enter your position"
-    position = gets.chomp
+    print "#{name2}, please enter your position: "
   end
+  position = gets.chomp
   position
 end
 
-
 display_instructions
-name1, name2 = get_name
+name1, name2 = user_name
 count = 1
 9.times do
   board = Board.new
@@ -40,7 +38,8 @@ count = 1
   position = get_user_input(board.turn(count), name1, name2)
   board.update(position)
   break if board.win? || board.tied?
- count += 1 
+
+  count += 1
 end
 puts("#{name1} is a winner")
-puts("It is a tie")
+puts('It is a tie')

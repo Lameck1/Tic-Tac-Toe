@@ -1,3 +1,5 @@
+# rubocop: disable Layout/LineLength
+
 Gem::Specification.new do |s|
   s.name = 'colorize'
   s.version = '0.8.1'
@@ -14,9 +16,9 @@ Gem::Specification.new do |s|
 
   s.require_paths = ['lib']
 
-  s.add_development_dependency 'rake', '~> 10.0'
-  s.add_development_dependency 'minitest', '~> 5.0'
   s.add_development_dependency 'codeclimate-test-reporter', '~> 0.4'
+  s.add_development_dependency 'minitest', '~> 5.0'
+  s.add_development_dependency 'rake', '~> 10.0'
 
   s.files = [
     'LICENSE',
@@ -28,9 +30,10 @@ Gem::Specification.new do |s|
     'lib/colorized_string.rb',
     'lib/colorize/class_methods.rb',
     'lib/colorize/instance_methods.rb',
-    'test/test_colorize.rb',
+    'test/test_colorize.rb'
   ]
   s.test_files = [
     'test/test_colorize.rb'
   ]
 end
+# rubocop: enable Layout/LineLength

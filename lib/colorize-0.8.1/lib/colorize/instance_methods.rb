@@ -18,6 +18,7 @@ module Colorize
     #
     def colorize(params)
       return self if self.class.disable_colorization
+
       require_windows_libs
       scan_for_colors.inject(self.class.new) do |str, match|
         colors_from_params(match, params)
@@ -69,8 +70,8 @@ module Colorize
     # Set colors from params hash
     #
     def colors_from_hash(match, hash)
-      match[0] = mode(hash[:mode])                   if mode(hash[:mode])
-      match[1] = color(hash[:color])                 if color(hash[:color])
+      match[0] = mode(hash[:mode]) if mode(hash[:mode])
+      match[1] = color(hash[:color]) if color(hash[:color])
       match[2] = background_color(hash[:background]) if background_color(hash[:background])
     end
 
@@ -115,7 +116,7 @@ module Colorize
       colors = (match[0] || '').split(';')
       array = Array.new(3)
       array[0], array[1], array[2] = colors if colors.length == 3
-      array[1] = colors                     if colors.length == 1
+      array[1] = colors if colors.length == 1
       array[3] = match[1] || match[2]
       array
     end

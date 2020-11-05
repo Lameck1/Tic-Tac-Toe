@@ -1,8 +1,10 @@
+# rubocop: disable Layout/LineLength
+
 require 'codeclimate-test-reporter'
 CodeClimate::TestReporter.start
 
 require 'minitest/autorun'
-require File.dirname(__FILE__) + '/../lib/colorize'
+require "#{File.dirname(__FILE__)}/../lib/colorize"
 
 class TestColorize < Minitest::Test
   def test_blue_symbol
@@ -16,18 +18,18 @@ class TestColorize < Minitest::Test
   end
 
   def test_incorrect_hash
-    assert_equal 'This is incorrect color'.colorize(:color => :bold),
+    assert_equal 'This is incorrect color'.colorize(color: :bold),
                  "\e[0;39;49mThis is incorrect color\e[0m"
 
-    assert_equal 'This is incorrect color'.colorize(:mode => :green),
+    assert_equal 'This is incorrect color'.colorize(mode: :green),
                  "\e[0;39;49mThis is incorrect color\e[0m"
 
-    assert_equal 'This is incorrect color'.colorize(:background => :bold),
+    assert_equal 'This is incorrect color'.colorize(background: :bold),
                  "\e[0;39;49mThis is incorrect color\e[0m"
   end
 
   def test_blue_hash
-    assert_equal 'This is also blue'.colorize(:color => :blue),
+    assert_equal 'This is also blue'.colorize(color: :blue),
                  "\e[0;34;49mThis is also blue\e[0m"
   end
 
@@ -37,12 +39,12 @@ class TestColorize < Minitest::Test
   end
 
   def test_light_blue_with_red_background_hash
-    assert_equal 'This is light blue with red background'.colorize(:color => :light_blue, :background => :red),
+    assert_equal 'This is light blue with red background'.colorize(color: :light_blue, background: :red),
                  "\e[0;94;41mThis is light blue with red background\e[0m"
   end
 
   def test_light_blue_with_red_background_symbol_and_hash
-    assert_equal 'This is light blue with red background'.colorize(:light_blue).colorize(:background => :red),
+    assert_equal 'This is light blue with red background'.colorize(:light_blue).colorize(background: :red),
                  "\e[0;94;41mThis is light blue with red background\e[0m"
   end
 
@@ -162,3 +164,4 @@ class TestColorize < Minitest::Test
     end
   end
 end
+# rubocop: enable Layout/LineLength

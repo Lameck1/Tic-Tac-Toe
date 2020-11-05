@@ -27,26 +27,26 @@ class Board
   end
 
   def switch_player(player1, player2, current_player)
-    current_player = current_player == player1 ? player2 :  player1
+    current_player == player1 ? player2 : player1
   end
 
   def win?
-      win_combinations = [
-        [@board[0], @board[1], @board[2]],
-        [@board[3], @board[4], @board[5]],
-        [@board[6], @board[7], @board[8]],
-        [@board[0], @board[3], @board[6]],
-        [@board[1], @board[4], @board[7]],
-        [@board[2], @board[5], @board[8]],
-        [@board[0], @board[4], @board[8]],
-        [@board[2], @board[4], @board[6]]
-      ]
-      win_combinations.any? do |combination|
-        combination.all? { |cells| cells ==  "X".red } || combination.all? { |cells| cells ==  "O".blue }
-      end
+    win_combinations = [
+      [@board[0], @board[1], @board[2]],
+      [@board[3], @board[4], @board[5]],
+      [@board[6], @board[7], @board[8]],
+      [@board[0], @board[3], @board[6]],
+      [@board[1], @board[4], @board[7]],
+      [@board[2], @board[5], @board[8]],
+      [@board[0], @board[4], @board[8]],
+      [@board[2], @board[4], @board[6]]
+    ]
+    win_combinations.any? do |combination|
+      combination.all? { |cells| cells == 'X'.red } || combination.all? { |cells| cells == 'O'.blue }
     end
+  end
 
-    def tied?
-      @board.all?(String)
-    end
- end
+  def tied?
+    @board.all?(String)
+  end
+end

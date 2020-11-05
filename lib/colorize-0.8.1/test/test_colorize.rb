@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # rubocop: disable Layout/LineLength
 
 require 'codeclimate-test-reporter'
@@ -95,12 +97,12 @@ class TestColorize < Minitest::Test
   end
 
   def test_frozen_strings
-    assert_equal 'This is blue text on red'.freeze.blue.on_red.blink,
+    assert_equal 'This is blue text on red'.blue.on_red.blink,
                  "\e[5;34;41mThis is blue text on red\e[0m"
   end
 
   def test_new_line
-    assert_equal "This is blue\ntext on red".freeze.blue.on_red.blink,
+    assert_equal "This is blue\ntext on red".blue.on_red.blink,
                  "\e[5;34;41mThis is blue\ntext on red\e[0m"
   end
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative './colorize-0.8.1/lib/colorize'
 class Player
   attr_reader :name, :character

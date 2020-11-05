@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # rubocop: disable Layout/LineLength
 
 Gem::Specification.new do |s|

@@ -5,19 +5,15 @@ class Board
     @board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   end
 
-  def draw
-    puts "|#{board[0]} | #{board[1]} | #{board[2]}|"
-    puts '-----------'
-    puts "|#{board[3]} | #{board[4]} | #{board[5]}|"
-    puts '-----------'
-    puts "|#{board[6]} | #{board[7]} | #{board[8]}|"
-  end
-
   def valid_move?(_position)
     nil
   end
 
-  def update(_input)
+  def position_taken?(_position)
+    nil
+  end
+
+  def update(_position, _player_turn, _player_a_c, _player_b_c)
     nil
   end
 

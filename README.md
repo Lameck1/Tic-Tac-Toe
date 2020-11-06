@@ -1,63 +1,127 @@
-# Ruby Course
+<h1 align="center">
+  <br>
+  <a href="https://github.com/Lameck1/Tic-Tac-Toe/archive/develop.zip"><img src="./lib/images/tic-tac-toe.png" width="200" height="200" ></a>
+</h1>
 
-If you are not familiar with linters and GitHub Actions, read [root level README](../README.md).
+<h1 align="center">Tit-Tac-Toe Game</h1>
 
-## Set-up Rubocop GitHub Action
+<p align="center">
+    <a href="https://github.com/Lameck1/Tic-Tac-Toe/issues">
+    <img src="https://img.shields.io/github/issues-raw/Lameck1/Tic-Tac-Toe?style=for-the-badge"
+         alt="Issues">
+     <a href="https://github.com/Lameck1/Tic-Tac-Toe/pulls">
+    <img src="https://img.shields.io/github/issues-pr/Lameck1/Tic-Tac-Toe?style=for-the-badge"
+         alt="Pull Requests">
+     <a href="https://github.com/Lameck1/Tic-Tac-Toe/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/Lameck1/tic-tac-toe?style=for-the-badge"
+         alt="License">
+     <a href="https://https://github.com/Lameck1/Tic-Tac-Toe/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/Lameck1/Tic-Tac-Toe?style=for-the-badge"
+         alt="License">
+    
+</p>
+      
+<p align="center">
+  <a href="#about">About</a> •
+  <a href="#prerequisites">Prerequisites</a> •
+  <a href="#rules-for-tic-tac-toe">Rules</a> •
+  <a href="#getting-started">Getting Started</a> •
+  <a href="#gameplay-instructions">Gameplay Instructions</a> •
+  <a href="#contributing">Contributing</a> •
+  <a href="#authors">Authors</a> •
+  <a href="#license">License</a>
+</p>
 
-[Rubocop](https://www.rubocop.org/) is a Ruby static code analyzer (a.k.a. linter) and code formatter. It will enforce many of the guidelines outlined in the community [Ruby Style Guide](https://rubystyle.guide/).
+---
 
-This GitHub Action is going to run [Rubocop](https://docs.rubocop.org/en/stable/) to help you find style issues.
+## About
+This project contains a Tic-Tac-Toe game. Tic-tac-toe, noughts and crosses, or Xs and Os, is a paper-and-pencil game for two players, X and O, who take turns marking the spaces in a 3×3 grid. The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner. It is a solved game with a forced draw assuming best play from both players.
 
-Please do the following **steps in this order**:
 
-1. In the first commit of your feature branch create a `.github/workflows` folder and add a copy of [`.github/workflows/linters.yml`](.github/workflows/linters.yml) to that folder.
-    - **Remember** to use the file linked above
-    - **Remember** that `.github` folder starts with a dot.
-2. **Do not make any changes in config files - they represent style guidelines that you share with your team - which is a group of all Microverse students.**
-    - If you think that change is necessary - open a [Pull Request in this repository](../README.md#contributing) and let your code reviewer know about it.
-3. When you open your first pull request you should see the result of the GitHub Actions:
 
-![gh actions checks](../assets/images/gh-actions-rubocop-linters-checks.png)
+![Gameplay GIF](./lib/images/demo-gif.gif)
 
-Click on the `Details` link to see the full output and the errors that need to be fixed:
+## Prerequisites
 
-![gh actions failing checks](../assets/images/gh-actions-rubocop-failing-checks.png)
+In order to play the game user should have ruby installed on the local machine
 
-## [OPTIONAL]Set-up RSpec GitHub Action
 
-You can run your tests with GitHub Actions to ensure that they are passing before merging a PR.
+## RULES FOR TIC-TAC-TOE
+1. The game is played on a grid that's 3 squares by 3 squares.
+2. You are X, your friend is O. Players take turns putting their marks in the labelled cells.
+3. The first player to get 3 of the marks in a row (up, down, across, or diagonally) is the winner.
+4. When all 9 cells are full, the game is over. If no player has 3 marks in a row, the game ends in a tie.
 
-To use the GitHub Action to run your tests, please do the following **steps in this order**:
+## Getting Started
 
-1. Add a copy of [`.github/workflows/tests.yml`](.github/workflows/tests.yml) to your `.github/workflows` folder.
-    - **Remember** to use the file linked above
-    - Do not modify or delete the [`.github/workflows/linters.yml`](.github/workflows/linters.yml) file that should already be in that folder.
-    - RSpec by default will try to run any file ending in `_spec.rb` inside the `spec` folder. Make sure to follow this convention for your tests files so `rspec` can run your spec files.
-    - You can modify the [`.github/workflows/tests.yml`](.github/workflows/tests.yml) file to better fit your custom needs.
-3. When you open your pull request you should see the result of the GitHub Action:
+### Step 1
 
-![gh actions checks](../assets/images/gh-actions-rspec-tests-checks.png)
+To get started you have to clone the repo on your local machine. To clone the repo run the following command in a terminal emulator:
+   
+```
+git clone https://github.com/Lameck1/Tic-Tac-Toe
+```
+       
+Alternatively, you can click on the Tic-Tac-Toe logo in the readme file and it will download the repo as a zip file
 
-Click on the `Details` link of the test action to check the results of your tests.
+### Step 2
 
-## Set-up linters in your local env
+Now navigate to the bin directory using the following command
 
-### [RuboCop](https://docs.rubocop.org/en/stable/)
+```
+cd bin
+```
 
-1. Add `gem 'rubocop', '~>0.81.0'` to `Gemfile` (not sure how to use Gemfile? Read [this](https://bundler.io/v1.15/guides/bundler_setup.html)).
-2. Run `bundle install`.
-3. Copy [.rubocop.yml](./.rubocop.yml) to the root directory of your project
-4. **Do not make any changes in config files - they represent style guidelines that you share with your team - which is a group of all Microverse students.**
-    - If you think that change is necessary - open a [Pull Request in this repository](../README.md#contributing) and let your code reviewer know about it.
-5. Run `rubocop`.
-6. Fix linter errors.
-7. **IMPORTANT NOTE**: feel free to research [auto-correct options for Rubocop](https://rubocop.readthedocs.io/en/latest/auto_correct/) if you get a flood of errors but keep in mind that correcting style errors manually will help you to make a habit of writing a clean code!
+### Step 3
 
-## Troubleshooting
+Run the game by executing the main.rb file using the following command:
 
-- While using Colorize gem, if you are facing errors with Rspec related to 
-    ```bash
-    LoadError:
-    cannot load such file -- colorize
-    ```
-    please remove ```--deployment``` from line no. [26](https://github.com/shubham14p3/Ruby-capstone-project/blob/ca86784cc88bea7c933e329c0953f07e21bcf6ca/.github/workflows/tests.yml#L16) of test.yml file.
+```
+./main.rb
+```
+
+## Gameplay Instructions
+
+- After running the game, press any key to continue or 'q' to quit the game
+- Enter the name of two players
+- You will be presented the 3x3 tic-tac-toe grid in which each cell will be labelled with a number
+- You can enter the cell number to make a move in the corresponding cell
+
+## Authors
+
+👤 **Anas Siddiqui**
+
+- GitHub: [Anas Siddiqui](https://github.com/smcommits)
+
+
+👤 **Lameck Otieno**
+
+- GitHub: [@githubhandle](https://github.com/Lameck1)
+- Twitter: [@twitterhandle](https://twitter.com/lameck721)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/lameck-odhiambo-642b7077/)
+
+## 🤝Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+### Colorize Gem
+  To add colors in the user-interface, we have used the ruby gem called colorize.
+  
+### The Tic-Tac-Toe logo
+   <div>Icons made by <a href="https://www.flaticon.com/authors/vitaly-gorbachev" title="Vitaly Gorbachev">Vitaly Gorbachev</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+   
+## License
+
+This project is [MIT](./LICENSE) licensed.
+
+
+
+
+
+

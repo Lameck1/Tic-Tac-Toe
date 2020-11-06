@@ -15,7 +15,7 @@
      <a href="https://github.com/Lameck1/Tic-Tac-Toe/blob/main/LICENSE">
     <img src="https://img.shields.io/github/license/Lameck1/tic-tac-toe?style=for-the-badge"
          alt="License">
-     <a href="https://https://github.com/Lameck1/Tic-Tac-Toe/graphs/contributors">
+     <a href="https://github.com/Lameck1/Tic-Tac-Toe/graphs/contributors">
     <img src="https://img.shields.io/github/contributors/Lameck1/Tic-Tac-Toe?style=for-the-badge"
          alt="License">
     

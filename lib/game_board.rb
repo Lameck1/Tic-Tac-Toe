@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative './colorize-0.8.1/lib/colorize'
 class Board
   attr_accessor :board

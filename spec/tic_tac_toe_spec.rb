@@ -121,3 +121,66 @@ describe Board do
     end
   end
 end
+describe Game do
+  let(:player_a) { Player.new('Misori', 'X') }
+  let(:player_b) { Player.new('Lameck', 'O') }
+  let(:current_player) { player_a }
+  let(:board) { Board.new }
+  let(:position) { '5' }
+  describe '#display_banner' do
+    it 'displays the banner' do
+      banner = "###############\nTIC - TAC - TOE\n###############\n"
+      expect { subject.display_banner }.to output(banner).to_stdout
+    end
+  end
+
+  describe '#display_instructions' do
+    it 'instructs the user on how to start or quit game' do
+      instruction = "Press the any key to start the game or q to quit the game\n"
+      expect { subject.display_instructions }.to output(instruction).to_stdout
+    end
+  end
+
+  describe '#valid_name?' do
+    it 'returns true if user enters a valid name' do
+      name = 'Lameck'
+      expect(subject.valid_name?(name)).to eq('Lameck')
+    end
+
+    it 'returns false if player enters !valid_name?' do
+      name = ' Lameck '
+      expect(subject.valid_name?(name)).not_to eq('Lameck')
+    end
+  end
+
+  describe '#display_detail(player_a, player_b)' do
+    it 'displays players details' do
+      details = /^Player 1: #{player_a.name} | Player 2: #{player_b.name}&/
+      expect { subject.display_detail(player_a, player_b) }.to output(details).to_stdout
+    end
+  end
+
+  describe '#an_outcome?' do
+    it 'notifies players of a win' do
+      board.update('1', current_player)
+      board.update('5', current_player)
+      board.update('9', current_player)
+      winner = /#{current_player.name} is the WINNER!!!!/
+      expect { subject.an_outcome?(board, player_a, player_b, current_player) }.to output(winner).to_stdout
+    end
+
+    it 'notifiest players of a draw' do
+      board.update('1', player_a)
+      board.update('9', player_b)
+      board.update('4', player_a)
+      board.update('7', player_b)
+      board.update('5', player_a)
+      board.update('6', player_b)
+      board.update('3', player_a)
+      board.update('2', player_b)
+      board.update('8', player_a)
+      alert = /Looks like it is a Tie!!/
+      expect { subject.an_outcome?(board, player_a, player_b, current_player) }.to output(alert).to_stdout
+    end
+  end
+end

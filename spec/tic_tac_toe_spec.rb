@@ -26,5 +26,40 @@ describe Board do
       expect(subject.board).to match_array(board_array)
     end
   end
+  describe '#draw' do
+    it 'draws the board' do
+      board = "|1 | 2 | 3|\n---+---+---\n|4 | 5 | 6|\n---+---+---\n|7 | 8 | 9|\n"
+      expect { subject.draw }.to output(board).to_stdout
+    end
+  end
 
+  describe '#valid_move?' do
+    it 'returns true if move is a value between (1..9) and !position_taken?' do
+      expect(subject.valid_move?(position)).to eq(true)
+    end
+
+    it 'returns false if position_taken?' do
+      first_move = '5'
+      subject.update(first_move, current_player)
+      next_move = '5'
+      expect(subject.valid_move?(next_move)).not_to eq(true)
+    end
+
+    it 'returns false if move is not between (1..9)' do
+      move_value = '11'
+      expect(subject.valid_move?(move_value)).not_to eq(true)
+    end
+  end
+
+  describe '#position_taken?' do
+    it 'returns true if player selects a cell with a String value' do
+      subject.update(position, current_player)
+      expect(subject.position_taken?(position)).to eq(true)
+    end
+
+    it 'returns false if player selects a cell with an Integer value' do
+      new_position = '6'
+      expect(subject.position_taken?(new_position)).not_to eq(true)
+    end
+  end
 end

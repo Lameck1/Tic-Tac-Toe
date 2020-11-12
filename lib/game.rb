@@ -1,19 +1,13 @@
 class Game
   def display_banner
     system('clear')
-    puts "
-
-    ████████╗██╗░█████╗░░░░░░░████████╗░█████╗░░█████╗░░░░░░░████████╗░█████╗░███████╗
-    ╚══██╔══╝██║██╔══██╗░░░░░░╚══██╔══╝██╔══██╗██╔══██╗░░░░░░╚══██╔══╝██╔══██╗██╔════╝
-    ░░░██║░░░██║██║░░╚═╝█████╗░░░██║░░░███████║██║░░╚═╝█████╗░░░██║░░░██║░░██║█████╗░░
-    ░░░██║░░░██║██║░░██╗╚════╝░░░██║░░░██╔══██║██║░░██╗╚════╝░░░██║░░░██║░░██║██╔══╝░░
-    ░░░██║░░░██║╚█████╔╝░░░░░░░░░██║░░░██║░░██║╚█████╔╝░░░░░░░░░██║░░░╚█████╔╝███████╗
-    ░░░╚═╝░░░╚═╝░╚════╝░░░░░░░░░░╚═╝░░░╚═╝░░╚═╝░╚════╝░░░░░░░░░░╚═╝░░░░╚════╝░╚══════╝
-        ".colorize(:red)
+    puts '###############'
+    puts 'TIC - TAC - TOE'
+    puts '###############'
   end
 
   def display_instructions
-    puts 'Press the any key to start the game or q to quit the game'.colorize(:cyan)
+    puts 'Press the any key to start the game or q to quit the game'
   end
 
   def valid_name?(name)
@@ -25,9 +19,9 @@ class Game
   end
 
   def user_name
-    print 'Enter the name of first player: '.colorize(:red)
+    print 'Enter the name of first player: '
     name1 = valid_name?(gets.chomp)
-    print 'Enter the name of second player: '.colorize(:blue)
+    print 'Enter the name of second player: '
     name2 = valid_name?(gets.chomp)
     puts "#{name1} will be using 'X' and #{name2} will be using 'O'"
     [name1.upcase, name2.upcase]
@@ -58,10 +52,10 @@ class Game
     display_detail(player_a, player_b)
     board.draw
     if board.win?
-      puts "\n#{current_player.name} is the WINNER!!!!".colorize(:yellow)
+      puts "\n#{current_player.name} is the WINNER!!!!"
       true
     elsif board.tied?
-      puts '\n Looks like it is a Tie!!'.colorize(:green)
+      puts '\n Looks like it is a Tie!!'
       true
     end
   end

@@ -1,4 +1,3 @@
-require_relative './colorize-0.8.1/lib/colorize'
 class Board
   attr_accessor :board
 
@@ -42,11 +41,11 @@ class Board
       [@board[2], @board[4], @board[6]]
     ]
     win_combinations.any? do |combination|
-      combination.all? { |cells| cells == 'X'.red } || combination.all? { |cells| cells == 'O'.blue }
+      combination.all? { |cells| cells == 'X' } || combination.all? { |cells| cells == 'O' }
     end
   end
 
   def tied?
-    @board.all?(String)
+    @board.all?(String) and !win?
   end
 end
